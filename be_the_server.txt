@@ -1,0 +1,25 @@
+from flask import Flask
+
+//Basic Flask API and Routing
+app = Flask(__name__)
+
+@app.route("/")
+def index():
+    return "Hai, ini percobaan untuk get request"
+
+@app.route("/submit", method=["POST"])
+def submit():
+    return "Hai, ini percobaan untuk post request"
+
+app.run(host="0.0.0.0", port="5000")
+
+
+
+==========================================================
+
+
+r = requests.post("http://localhost:5000/submit")
+r.status_code
+
+r.text
+

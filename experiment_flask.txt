@@ -1,0 +1,82 @@
+from flask import Flask
+
+app = Flask(__name__)
+
+@app.route("/"):
+def index():
+    return "Hai, ini percobaan untuk GET requests"
+
+@app.route("/submit", methods=["POST"])
+def submit():
+    return "Hai, ini percobaan untuk POST requests"
+
+if __name__ == "__main__"
+   app.run(host="0.0.0.0", port="5000")
+
+
+===============================================
+
+========== Routing Variabel ==============
+from flask import Flask, render_template
+
+app = Flask(__name__)
+
+@app.route("/<nama>")
+def index():
+    return render_templates("form.html")
+
+if __name__ == "__main__":
+   app.run(host="0.0.0.0", port="5000")
+
+//rendering templates
+
+
+=================================================
+========= Multiple HTTP Methods ===========
+
+from flask import Flask, render_templates
+
+app = Flask(__name__)
+
+@app.route("/", methods=["GET", "POST"])
+def index():
+    if requests.method == "GET":
+       return render_template("form.html")
+    elif requests.method == "POST":
+       return "Terimakasih"
+
+if __name__ == "__main__":
+   app.run(host="0.0.0.0", port="5000")
+
+
+
+====================================================
+=============== Extract Request Data ============
+//from url parameters
+a = {
+    "a" : 1,
+    "b" : 2
+}
+
+a.get("c", "wew")
+
+from flask import Flask, render_template
+
+app = Flask(__name__)
+
+@app.route("/")
+def index():
+    print(requets.args.get("nama"))
+    return "Terimakasih"
+
+if __name__ == "__main__":
+   app.run(host="0.0.0.0", port="5000")
+
+
+========================================================
+=============== Extract requests data dari form =======
+
+
+
+
+

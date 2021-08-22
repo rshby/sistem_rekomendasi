@@ -1,0 +1,12 @@
+== POST ===
+
+data = {
+	"email" : "eve.holt@regres.in",
+	"password" : "cityslicka"
+}
+
+r = requests.post("https://regres.in/api/login", data=data)
+r.status_code
+
+r.json()
+

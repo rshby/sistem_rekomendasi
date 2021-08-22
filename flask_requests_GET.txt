@@ -1,0 +1,81 @@
+import requests
+import pandas as pd
+
+// be client
+
+=== GET request ===
+r = requests.get("https://official-joke-api.appspot.com/jokes/random")
+
+r.status_code
+
+data = r.json()
+
+=== Parameter API ===
+
+r = requests.get("https://api.genderize.io?")
+r.status_code
+
+r.json()
+
+r = requests.get("https://api.genderize.io?name=reo")
+r.status_code
+
+r.json()
+
+=== Input Parameter memakai dictionary ===
+params = {
+	"name" : "windy",
+	"country_id" : "ID"
+}
+
+r = requests.get("https://api.genderize.io", params=params)
+r.status_code
+
+r.json()
+
+
+=== Latihan 1 ===
+coba extract hari libur di indonesia tahun 2021 menggunakan public holiday API
+
+r = requests.get("https://date.nager.at/api/v2/publicholidays/2021/ID")
+r.status_code
+
+r.json()
+
+
+
+
+=== Latihan 2 ===
+r = requests.get("https://randomuser.me/api/")
+r.status_code
+
+result = r.json()
+result
+
+biodata = {
+	"born" : result["results"][0]["dob"]["date"],
+	"gender" : result["results"][0]["gender"],
+	"first_name" : result["results"][0]["name"]["first"],
+	"last_name" : result["results"][0]["name"]["last"]
+}
+
+from dateutil import parser
+date = parser.parse(biodata["born"])
+date = date.strftime("%d-%m-%Y")
+date
+
+biodata["born"] = date
+
+params = {
+	"service" : "_________________",
+	"nama" : biodata["first_name"],
+	"tanggal" : biodata["born"]
+}
+
+r = request.get("https://script.google.com/macros/exec", parmas=params)
+
+result = r.json()
+result
+
+biodata["zodiak"] = result["data"]["zodiak"]
+biodata
